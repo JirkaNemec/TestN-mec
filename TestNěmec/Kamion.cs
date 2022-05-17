@@ -8,26 +8,45 @@ namespace TestNěmec
 {
     internal class Kamion
     {
-        public int maxcarry { get; }
-        public int maxfuel { get; }
-        public int consum { get; }
-        public int distance { get; }
-        public int currentcarry { get; set; }
-        public int currentfuel { get; set; }
+        public int nosnost;
+        public int palivo;
+        public int spotreba;
+        public int vzdalenost;
 
-        public Kamion(int nosnost, int nadrz, int spotreba)
+        public string Jmeno { get; set; }
+        public int Nosnost { get; set; }
+        public int Palivo { get; set; }
+        public int Spotreba { get; set; }
+        public int Vzdalenost { get; set; }
+        public int Naklad { get; set; }
+
+        public Kamion()
         {
-            maxfuel = nadrz;
-            consum = spotreba;
-            maxcarry = nosnost;
-            distance = 0;
-            currentcarry = 0;
-            currentfuel = 0;
+            Jmeno = " ";
+            Nosnost = 25000;
+            Palivo = 1000;
+            Spotreba = 25;
+            Vzdalenost = 1500;
+            Naklad = 0;
         }
-        public void Jet(int distance)
+
+        public void Nalozit()
         {
-            
+            Naklad += 2500;
+            if (Naklad > 25000)
+            {
+                Naklad = 25000;
+            }
         }
-        
+
+        public void Vylozit()
+        {
+            Naklad -= 2500;
+            if (Naklad < 0)
+            {
+                Naklad = 0;
+            }
+        }
+
     }
 }

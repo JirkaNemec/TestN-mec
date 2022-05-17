@@ -20,42 +20,39 @@ namespace TestNěmec
     /// </summary>
     public partial class MainWindow : Window
     {
+        Kamion Scania;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Scania = new Kamion();
+            Scania.Jmeno = "I V E C O";
+            Zobraz(Scania, );
+
         }
 
-        private void Jet(object sender, RoutedEventArgs e)
+        public void Zobraz(Kamion nakladak, TextBox textBox)
         {
-
+            textBox.Text = nakladak.Jmeno + "\n";
+            textBox.Text += "Nosnost v kg: " + nakladak.Nosnost.ToString() + "\n";
+            textBox.Text += "Palivo v l: " + nakladak.Palivo.ToString() + "\n";
+            textBox.Text += "Spotřeba xl/100km: " + nakladak.Spotreba.ToString() + "\n";
+            textBox.Text += "Vzdálenost: " + nakladak.Vzdalenost.ToString() + "\n";
+            textBox.Text += "Náklad: " + nakladak.Naklad.ToString() + "\n";
         }
 
-        private void plus_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int m = 0;
-            try
-            {
-                m = int.Parse(Distance.Text);
-                Distance.Text = m.ToString();
-            }
-            catch
-            {
-                Distance.Text += 10;
-            }
+            Scania.Nalozit();
+            Zobraz(Scania, );
         }
 
-        private void plusko_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            int m = 0;
-            try
-            {
-                m = int.Parse(Distance.Text);
-                Distance.Text = m.ToString();
-            }
-            catch
-            {
-                Distance.Text += 20;
-            }
+            Scania.Vylozit();
+            Zobraz(Scania, );
         }
+
     }
 }
