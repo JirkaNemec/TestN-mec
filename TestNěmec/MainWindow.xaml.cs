@@ -20,39 +20,51 @@ namespace TestNěmec
     /// </summary>
     public partial class MainWindow : Window
     {
-        Kamion Scania;
-
+        nakladak nakladak1;
         public MainWindow()
         {
-            InitializeComponent();
 
-            Scania = new Kamion();
-            Scania.Jmeno = "I V E C O";
-            Zobraz(Scania, );
+            InitializeComponent();
+            nakladak1 = new nakladak();
+            Shownakladak(nakladak1, txt1);
+
 
         }
 
-        public void Zobraz(Kamion nakladak, TextBox textBox)
+
+        public void Shownakladak(nakladak vehicle, TextBox textbox)
         {
-            textBox.Text = nakladak.Jmeno + "\n";
-            textBox.Text += "Nosnost v kg: " + nakladak.Nosnost.ToString() + "\n";
-            textBox.Text += "Palivo v l: " + nakladak.Palivo.ToString() + "\n";
-            textBox.Text += "Spotřeba xl/100km: " + nakladak.Spotreba.ToString() + "\n";
-            textBox.Text += "Vzdálenost: " + nakladak.Vzdalenost.ToString() + "\n";
-            textBox.Text += "Náklad: " + nakladak.Naklad.ToString() + "\n";
+            textbox.Text = $"MaxNosnost: {vehicle.nosnost}\n";
+            textbox.Text += $"Naklad: {vehicle.naklad}\n";
+            textbox.Text += $"Velikost nadrze: {vehicle.velikost_nadrz}\n";
+            textbox.Text += $"Stav nadrze: {vehicle.stav_nadrz}\n";
+            textbox.Text += $"Tachometr: {vehicle.tachometr}\n";
+            textbox.Text += $"spotreba: {vehicle.spotreba}\n";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Scania.Nalozit();
-            Zobraz(Scania, );
+            nakladak1.Nalozitnaklad();
+            Shownakladak(nakladak1, txt1);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            nakladak1.Vylozitnaklad();
+            Shownakladak(nakladak1, txt1);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Scania.Vylozit();
-            Zobraz(Scania, );
+            nakladak1.pohyb();
+            nakladak1.Spotreba();
+            Shownakladak(nakladak1, txt1);
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            nakladak1.Natankovat();
+            Shownakladak(nakladak1, txt1);
+        }
     }
 }

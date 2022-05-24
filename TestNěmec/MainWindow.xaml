@@ -7,13 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name ="Go" Content="Jet" HorizontalAlignment="Left" Margin="28,323,0,0" VerticalAlignment="Top" Height="101" Width="149" FontSize="20" Click="Jet"/>
-        <TextBox Name="Fuel" HorizontalAlignment="Left" Margin="28,224,0,0" TextWrapping="Wrap" Text="Fuel:&#xA;" VerticalAlignment="Top" Width="167" Height="73" FontSize="22"/>
-        <Button Name="Naložit" Content="Naložit" HorizontalAlignment="Left" Margin="201,323,0,0" VerticalAlignment="Top" Height="101" Width="144" FontSize="20"/>
-        <Button Name="Vyložit" Content="Vyložit" HorizontalAlignment="Left" Margin="388,323,0,0" VerticalAlignment="Top" Height="101" Width="134" FontSize="20"/>
-        <Button Name="plus" Content="+10 km" HorizontalAlignment="Left" Margin="576,323,0,0" VerticalAlignment="Top" Height="101" Width="125" FontSize="20" Click="plus_Click"/>
-        <TextBox x:Name="Distance" HorizontalAlignment="Left" Margin="289,224,0,0" TextWrapping="Wrap" Text="Distance:" VerticalAlignment="Top" Width="186" Height="73" FontSize="20"/>
-        <TextBox x:Name="Carry" HorizontalAlignment="Left" Margin="548,32,0,0" TextWrapping="Wrap" Text="Carry:" VerticalAlignment="Top" Width="180" Height="73" FontSize="20"/>
-        <Button x:Name="plusko" Content="+ 20 km" HorizontalAlignment="Left" Margin="576,214,0,0" VerticalAlignment="Top" Height="92" Width="125" FontSize="20" Click="plusko_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="200" Margin="289,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Name="txt1"/>
+        <Button Content="nalozit" Margin="28,302,680,82"  Click="Button_Click"/>
+        <Button Content="vylozit" HorizontalAlignment="Left"  Margin="152,302,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_1" Height="50"/>
+        <Button Content="jeď" HorizontalAlignment="Left"  Margin="400,307,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_2" Height="45"/>
+        <Button Content="Dotankuj" Margin="552,307,148,82" Click="Button_Click_3"/>
+
     </Grid>
 </Window>

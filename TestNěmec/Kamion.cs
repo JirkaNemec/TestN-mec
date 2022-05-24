@@ -6,47 +6,89 @@ using System.Threading.Tasks;
 
 namespace TestNěmec
 {
-    internal class Kamion
+    public class nakladak
     {
-        public int nosnost;
-        public int palivo;
-        public int spotreba;
-        public int vzdalenost;
+        public int nosnost { get; set; }
+        public int naklad { get; set; }
+        public int velikost_nadrz { get; set; }
+        public int stav_nadrz { get; set; }
+        public int tachometr { get; set; }
+        public int spotreba { get; set; }
 
-        public string Jmeno { get; set; }
-        public int Nosnost { get; set; }
-        public int Palivo { get; set; }
-        public int Spotreba { get; set; }
-        public int Vzdalenost { get; set; }
-        public int Naklad { get; set; }
-
-        public Kamion()
+        public nakladak()
         {
-            Jmeno = " ";
-            Nosnost = 25000;
-            Palivo = 1000;
-            Spotreba = 25;
-            Vzdalenost = 1500;
-            Naklad = 0;
+            nosnost = 5000;
+            naklad = 0;
+            velikost_nadrz = 200;
+            stav_nadrz = 200;
+            tachometr = 0;
+            spotreba = 0;
         }
-
-        public void Nalozit()
+        public void Nalozitnaklad()
         {
-            Naklad += 2500;
-            if (Naklad > 25000)
+
+            if (naklad == 5000)
             {
-                Naklad = 25000;
+                naklad = 5000;
+            }
+            else if (naklad < 5000)
+            {
+                naklad += 100;
             }
         }
-
-        public void Vylozit()
+        public void Vylozitnaklad()
         {
-            Naklad -= 2500;
-            if (Naklad < 0)
+
+            if (naklad == 0)
             {
-                Naklad = 0;
+                naklad = 0;
+            }
+            else if (naklad > 0)
+            {
+                naklad -= 100;
             }
         }
+        public void pohyb()
+        {
+
+            if (stav_nadrz == 0)
+            {
+                tachometr += 0;
+                stav_nadrz = 0;
+
+            }
+            else if (naklad > 2500)
+            {
+                stav_nadrz -= 50;
+                tachometr += 50;
+            }
+            else if (naklad < 2500)
+            {
+                stav_nadrz -= 40;
+                tachometr += 40;
+            }
+        }
+        public void Spotreba()
+        {
+            if (stav_nadrz == 0)
+            {
+                spotreba = 0;
+            }
+            else if (naklad > 2500)
+            {
+                spotreba = 50;
+            }
+            else if (naklad < 2500)
+            {
+                spotreba = 40;
+            }
+        }
+        public void Natankovat()
+        {
+            stav_nadrz = 200;
+        }
+
+
 
     }
 }
